@@ -1,0 +1,26 @@
+schema: bittrellis/manifest@2
+track: HPC-01
+name: nvfp4-gptq-dn-mlp-gdn-fp8-all-attn-q4k-lmhead-q4k
+description: >
+  #103 (nvfp4_gptq on every MLP block, FP8 on the recurrent qkv, z and out of layers 1-63, attention on runtime
+  Q4_K, nvfp4_blockfit on layer 0, lm_head fitted once: eval:M) with every MLP block on nvfp4_gptq_dn, which
+  also rounds down_proj by GPTQ on the pinned down_proj input statistics instead of the blockfit fit. down_proj
+  is a third of every MLP block's weights and reads the heavy-tailed SwiGLU activation, the input where
+  Hessian-weighted rounding has the most error left to remove; gate/up bytes and every other byte are #103's,
+  so decode, prefill and memory should not move and drift should fall below #103.
+authors: [gold-tree-tech]
+default: NVFP4
+rules:
+  - match: "L*.mlp"
+    format: NVFP4
+    quantizer: nvfp4_gptq_dn
+  - match: "L*.attn.*"
+    format: Q4_K
+  - match: "L*.gdn.*"
+    format: NVFP4
+    quantizer: nvfp4_blockfit
+  - match: "L*.gdn.*"
+    layers: "1-63"
+    format: FP8
+modules:
+  lm_head: Q4_K
