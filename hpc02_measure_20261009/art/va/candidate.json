@@ -1,0 +1,40 @@
+{
+  "id": "2ab315915e5815d2",
+  "name": "diag-va-imatrix-nogptq",
+  "kind": "internal",
+  "track": "HPC-02",
+  "manifest": {
+    "schema": "bittrellis/manifest@2",
+    "track": "HPC-02",
+    "name": "diag-va-imatrix-nogptq",
+    "description": "diagnostic, kq_imatrix everywhere with GPTQ off",
+    "default": "Q4_K",
+    "encoders": {
+      "Q4_K": "kq_imatrix"
+    },
+    "rules": [
+      {
+        "match": "*",
+        "format": "Q4_K",
+        "encoder": "kq_imatrix",
+        "params": {
+          "gptq": false
+        }
+      }
+    ]
+  },
+  "build": {
+    "candidate_id": "2ab315915e5815d2",
+    "name": "diag-va-imatrix-nogptq",
+    "track": "HPC-02",
+    "summary": {
+      "Q4_K@kq_imatrix@v1+3112ab5d2e16": 372
+    },
+    "tensors": 733,
+    "encoded": 432,
+    "bytes": 19597458144,
+    "sha256": "e53e11d8d0663c5afda8d264217e92c5d78b9deab01f68624e61a258cc3093d7"
+  },
+  "audit_ok": true,
+  "checkpoint_bytes": 19597458144
+}

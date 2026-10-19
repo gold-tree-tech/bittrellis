@@ -1,0 +1,7 @@
+{"tensor": "L12.linear_attn.in_proj_qkv.weight.npy", "fmt": "Q5_K", "imat": 0.4503, "ours_diag": 0.4508, "ours_gptq": 0.3166}
+{"tensor": "L12.linear_attn.in_proj_z.weight.npy", "fmt": "Q5_K", "imat": 0.4533, "ours_diag": 0.4557, "ours_gptq": 0.3224}
+{"tensor": "L19.self_attn.q_proj.weight.npy", "fmt": "Q5_K", "imat": 0.4033, "ours_diag": 0.4057, "ours_gptq": 0.2748}
+{"tensor": "L19.self_attn.k_proj.weight.npy", "fmt": "Q5_K", "imat": 0.3930, "ours_diag": 0.3963, "ours_gptq": 0.2648}
+{"tensor": "L19.self_attn.v_proj.weight.npy", "fmt": "Q5_K", "imat": 0.3966, "ours_diag": 0.3974, "ours_gptq": 0.2632}
+{"tensor": "L3.self_attn.q_proj.weight.npy", "fmt": "Q5_K", "imat": 0.1876, "ours_diag": 0.1889, "ours_gptq": 0.1219}
+{"tensor": "L3.self_attn.k_proj.weight.npy", "fmt": "Q5_K", "imat": 0.1791, "ours_diag": 0.1845, "ours_gptq": 0.1164}

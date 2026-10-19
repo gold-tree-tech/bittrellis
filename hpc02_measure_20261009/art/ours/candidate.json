@@ -1,0 +1,30 @@
+{
+  "id": "a2ae341489f7a091",
+  "name": "kq-imatrix-all-q4k",
+  "kind": "internal",
+  "track": "HPC-02",
+  "manifest": {
+    "schema": "bittrellis/manifest@2",
+    "track": "HPC-02",
+    "name": "kq-imatrix-all-q4k",
+    "description": "V2's map (every searchable tensor Q4_K: the fastest and smallest seed, decode 466 tok/s at 23.25 GiB, but RP-KL 0.1207 by kq_rtn) encoded by the contributed kq_imatrix instead of kq_rtn. The formats, and so the speed and memory, are V2's; only the rounding changes. kq_imatrix weighs every input channel by its mean x\u00b2 on the pinned HPC-02 statistics (per expert for the routed experts), searches each sub-block's scale and minimum under those weights, refits the stored 6-bit and f16 scales, and rounds the shared experts, attention q/k/v and recurrent qkv/z by GPTQ on the pinned full x x\u1d40. Measured on CPU on real Qwen3.6-35B-A3B tensors of layers 0, 3, 20, 38 and 39 (Q4_K, error relative to kq_rtn): routed experts 0.44-0.72 of the per-expert importance-weighted error on gate/up (unsloth's imatrix bytes: 0.46-0.75) and 0.22-0.74 on downs; output error tr(\u0394W\u00b7X\u1d40X\u00b7\u0394W\u1d40) 0.28-0.34 on the recurrent qkv/z, 0.11-0.30 on attention q/k/v, 0.17-0.53 on the shared experts; tensors without statistics (attention o, recurrent out, embeddings, lm_head) get a uniform-weight fit, 0.80 of kq_rtn's squared error.\n",
+    "default": "Q4_K",
+    "encoders": {
+      "Q4_K": "kq_imatrix"
+    }
+  },
+  "build": {
+    "candidate_id": "a2ae341489f7a091",
+    "name": "kq-imatrix-all-q4k",
+    "track": "HPC-02",
+    "summary": {
+      "Q4_K@kq_imatrix@v1": 372
+    },
+    "tensors": 733,
+    "encoded": 432,
+    "bytes": 19597458144,
+    "sha256": "a63c5fc7c42c5e45c864414705242b294f9231b3d39bc96c7d9e96ebde345641"
+  },
+  "audit_ok": true,
+  "checkpoint_bytes": 19597458144
+}

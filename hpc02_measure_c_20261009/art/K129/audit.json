@@ -1,0 +1,28 @@
+{
+  "ok": true,
+  "errors": [],
+  "n_errors": 0,
+  "candidate_id": "07e6a4afdffd580d",
+  "lineage": {
+    "kq_rtn@v1": {
+      "lineage": "regenerable",
+      "units": 69,
+      "sampled": [
+        "L13.gdn.qkv",
+        "L18.exps.down",
+        "L21.gdn.qkv",
+        "L34.gdn.qkv",
+        "embed",
+        "lm_head"
+      ]
+    },
+    "unsloth_ud@v1": {
+      "lineage": "attested",
+      "units": 303,
+      "checked": 303
+    }
+  },
+  "checkpoint_files": {
+    "K129.gguf": "212efd019608144fabef8a2e58c270d2842275d843504338ffd8a7de9ce606f8"
+  }
+}

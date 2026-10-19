@@ -1,0 +1,16 @@
+schema: bittrellis/manifest@2
+track: HPC-02
+name: diag-vb-imatrix-stats-units-only
+description: diagnostic, kq_imatrix (GPTQ on) only on units with statistics; attn.o, gdn.out, embed, lm_head kq_rtn
+default: Q4_K
+encoders: {Q4_K: kq_imatrix}
+rules:
+  - match: "L*.attn.o"
+    format: Q4_K
+    encoder: kq_rtn
+  - match: "L*.gdn.out"
+    format: Q4_K
+    encoder: kq_rtn
+modules:
+  embed: {format: Q4_K, encoder: kq_rtn}
+  lm_head: {format: Q4_K, encoder: kq_rtn}

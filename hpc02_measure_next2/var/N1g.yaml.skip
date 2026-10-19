@@ -1,0 +1,42 @@
+schema: bittrellis/manifest@2
+track: HPC-02
+name: pr145-kq-imatrix-gptq
+description: >
+  #147's recipe (#145's map, the fastest on the ledger, with the merged kq_imat: RP-KL 0.0855, decode 474.6,
+  23.40 GiB) with kq_imatrix's GPTQ on the tensors whose full input covariance is pinned: the recurrent qkv and z
+  of all 30 Gated DeltaNet layers and the attention q of layers 11-39 (attn_input.xtx). On the pinned BF16
+  weights of layers 12, 19 and 30 GPTQ lowers their xtx-weighted Q4_K error to 0.27-0.32 of kq_rtn's, against
+  0.39-0.45 for kq_imat. Routed downs, attention o, recurrent out, lm_head and the embeddings keep kq_imat.
+default: Q8_0
+encoders: {Q4_K: unsloth_ud, Q5_K: unsloth_ud, Q6_K: unsloth_ud, Q8_0: unsloth_ud}
+rules:
+  - match: "L*.exps.gate"
+    format: Q4_K
+  - match: "L*.exps.up"
+    format: Q4_K
+  - match: "L*.exps.down"
+    format: Q4_K
+    encoder: kq_imat
+  - match: "L*.gdn.qkv"
+    format: Q4_K
+    encoder: kq_imatrix
+  - match: "L*.gdn.z"
+    format: Q4_K
+    encoder: kq_imatrix
+  - match: "L*.gdn.out"
+    format: Q4_K
+    encoder: kq_imat
+  - match: "L*.attn.q"
+    layers: "11-39"
+    format: Q4_K
+    encoder: kq_imatrix
+  - match: "L*.attn.o"
+    layers: "11-39"
+    format: Q4_K
+    encoder: kq_imat
+modules:
+  L34.exps.down: Q6_K
+  L38.exps.down: Q6_K
+  L39.exps.down: Q6_K
+  lm_head: {format: Q4_K, encoder: kq_imat}
+  embed: {format: Q4_K, encoder: kq_imat}

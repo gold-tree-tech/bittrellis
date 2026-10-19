@@ -1,0 +1,38 @@
+{
+  "id": "8b4219ec61b8855c",
+  "name": "diag-vc-imatrix-experts-only",
+  "kind": "internal",
+  "track": "HPC-02",
+  "manifest": {
+    "schema": "bittrellis/manifest@2",
+    "track": "HPC-02",
+    "name": "diag-vc-imatrix-experts-only",
+    "description": "diagnostic, kq_imatrix only on routed experts; everything else kq_rtn",
+    "default": "Q4_K",
+    "encoders": {
+      "Q4_K": "kq_rtn"
+    },
+    "rules": [
+      {
+        "match": "L*.exps.*",
+        "format": "Q4_K",
+        "encoder": "kq_imatrix"
+      }
+    ]
+  },
+  "build": {
+    "candidate_id": "8b4219ec61b8855c",
+    "name": "diag-vc-imatrix-experts-only",
+    "track": "HPC-02",
+    "summary": {
+      "Q4_K@kq_rtn@v1": 252,
+      "Q4_K@kq_imatrix@v1": 120
+    },
+    "tensors": 733,
+    "encoded": 432,
+    "bytes": 19597458144,
+    "sha256": "d36373a78d76bb175e59ab315e901f19479625a9c1d78ba9202bf1b16dec85ae"
+  },
+  "audit_ok": true,
+  "checkpoint_bytes": 19597458144
+}

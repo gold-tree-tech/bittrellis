@@ -1,0 +1,23 @@
+{
+  "ok": true,
+  "errors": [],
+  "n_errors": 0,
+  "candidate_id": "2ab315915e5815d2",
+  "lineage": {
+    "kq_imatrix@v1": {
+      "lineage": "regenerable",
+      "units": 372,
+      "sampled": [
+        "L0.gdn.qkv",
+        "L30.exps.down",
+        "L39.exps.up",
+        "L39.shexp.down",
+        "embed",
+        "lm_head"
+      ]
+    }
+  },
+  "checkpoint_files": {
+    "va.gguf": "e53e11d8d0663c5afda8d264217e92c5d78b9deab01f68624e61a258cc3093d7"
+  }
+}

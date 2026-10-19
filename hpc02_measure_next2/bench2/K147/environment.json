@@ -1,0 +1,42 @@
+{
+  "gpu": "NVIDIA GeForce RTX 5090, 32607 MiB, 590.48.01",
+  "cuda": "Build cuda_13.0.r13.0/compiler.36424714_0",
+  "cpu": "Intel(R) Core(TM) Ultra 9 285K",
+  "kernel": "6.17.0-14-generic",
+  "os": "Linux-6.17.0-14-generic-x86_64-with-glibc2.39",
+  "python": "3.12.3",
+  "sparkinfer_commit": "f61355088ddd58549ad8db03675b4543785e1b53",
+  "bittrellis_version": "0.1.0",
+  "bittrellis_commit": "",
+  "evaluator_epoch": "hpc02-e1",
+  "effective_env": {
+    "scoring": {
+      "CUDA_HOME": "/usr/local/cuda-13.0",
+      "CUDA_VERSION": "12.8.1",
+      "LD_LIBRARY_PATH": "/usr/local/cuda/lib64",
+      "NVIDIA_DRIVER_CAPABILITIES": "all",
+      "NVIDIA_PRODUCT_NAME": "CUDA",
+      "NVIDIA_REQUIRE_CUDA": "cuda>=12.8 brand=unknown,driver>=470,driver<471 brand=grid,driver>=470,driver<471 brand=tesla,driver>=470,driver<471 brand=nvidia,driver>=470,driver<471 brand=quadro,driver>=470,driver<471 brand=quadrortx,driver>=470,driver<471 brand=nvidiartx,driver>=470,driver<471 brand=vapps,driver>=470,driver<471 brand=vpc,driver>=470,driver<471 brand=vcs,driver>=470,driver<471 brand=vws,driver>=470,driver<471 brand=cloudgaming,driver>=470,driver<471 brand=unknown,driver>=535,driver<536 brand=grid,driver>=535,driver<536 brand=tesla,driver>=535,driver<536 brand=nvidia,driver>=535,driver<536 brand=quadro,driver>=535,driver<536 brand=quadrortx,driver>=535,driver<536 brand=nvidiartx,driver>=535,driver<536 brand=vapps,driver>=535,driver<536 brand=vpc,driver>=535,driver<536 brand=vcs,driver>=535,driver<536 brand=vws,driver>=535,driver<536 brand=cloudgaming,driver>=535,driver<536 brand=unknown,driver>=550,driver<551 brand=grid,driver>=550,driver<551 brand=tesla,driver>=550,driver<551 brand=nvidia,driver>=550,driver<551 brand=quadro,driver>=550,driver<551 brand=quadrortx,driver>=550,driver<551 brand=nvidiartx,driver>=550,driver<551 brand=vapps,driver>=550,driver<551 brand=vpc,driver>=550,driver<551 brand=vcs,driver>=550,driver<551 brand=vws,driver>=550,driver<551 brand=cloudgaming,driver>=550,driver<551 brand=unknown,driver>=560,driver<561 brand=grid,driver>=560,driver<561 brand=tesla,driver>=560,driver<561 brand=nvidia,driver>=560,driver<561 brand=quadro,driver>=560,driver<561 brand=quadrortx,driver>=560,driver<561 brand=nvidiartx,driver>=560,driver<561 brand=vapps,driver>=560,driver<561 brand=vpc,driver>=560,driver<561 brand=vcs,driver>=560,driver<561 brand=vws,driver>=560,driver<561 brand=cloudgaming,driver>=560,driver<561 brand=unknown,driver>=565,driver<566 brand=grid,driver>=565,driver<566 brand=tesla,driver>=565,driver<566 brand=nvidia,driver>=565,driver<566 brand=quadro,driver>=565,driver<566 brand=quadrortx,driver>=565,driver<566 brand=nvidiartx,driver>=565,driver<566 brand=vapps,driver>=565,driver<566 brand=vpc,driver>=565,driver<566 brand=vcs,driver>=565,driver<566 brand=vws,driver>=565,driver<566 brand=cloudgaming,driver>=565,driver<566",
+      "NVIDIA_VISIBLE_DEVICES": "all",
+      "OMP_NUM_THREADS": "1",
+      "SPARKINFER_ATTN_REQUANT_Q4K": "0",
+      "SPARKINFER_DETERMINISTIC": "1",
+      "SPARKINFER_MOE_DOWN_REQUANT_Q4K": "0",
+      "SPARKINFER_SPARSE_KV": "0"
+    },
+    "benchmark": {
+      "CUDA_HOME": "/usr/local/cuda-13.0",
+      "CUDA_VERSION": "12.8.1",
+      "LD_LIBRARY_PATH": "/usr/local/cuda/lib64",
+      "NVIDIA_DRIVER_CAPABILITIES": "all",
+      "NVIDIA_PRODUCT_NAME": "CUDA",
+      "NVIDIA_REQUIRE_CUDA": "cuda>=12.8 brand=unknown,driver>=470,driver<471 brand=grid,driver>=470,driver<471 brand=tesla,driver>=470,driver<471 brand=nvidia,driver>=470,driver<471 brand=quadro,driver>=470,driver<471 brand=quadrortx,driver>=470,driver<471 brand=nvidiartx,driver>=470,driver<471 brand=vapps,driver>=470,driver<471 brand=vpc,driver>=470,driver<471 brand=vcs,driver>=470,driver<471 brand=vws,driver>=470,driver<471 brand=cloudgaming,driver>=470,driver<471 brand=unknown,driver>=535,driver<536 brand=grid,driver>=535,driver<536 brand=tesla,driver>=535,driver<536 brand=nvidia,driver>=535,driver<536 brand=quadro,driver>=535,driver<536 brand=quadrortx,driver>=535,driver<536 brand=nvidiartx,driver>=535,driver<536 brand=vapps,driver>=535,driver<536 brand=vpc,driver>=535,driver<536 brand=vcs,driver>=535,driver<536 brand=vws,driver>=535,driver<536 brand=cloudgaming,driver>=535,driver<536 brand=unknown,driver>=550,driver<551 brand=grid,driver>=550,driver<551 brand=tesla,driver>=550,driver<551 brand=nvidia,driver>=550,driver<551 brand=quadro,driver>=550,driver<551 brand=quadrortx,driver>=550,driver<551 brand=nvidiartx,driver>=550,driver<551 brand=vapps,driver>=550,driver<551 brand=vpc,driver>=550,driver<551 brand=vcs,driver>=550,driver<551 brand=vws,driver>=550,driver<551 brand=cloudgaming,driver>=550,driver<551 brand=unknown,driver>=560,driver<561 brand=grid,driver>=560,driver<561 brand=tesla,driver>=560,driver<561 brand=nvidia,driver>=560,driver<561 brand=quadro,driver>=560,driver<561 brand=quadrortx,driver>=560,driver<561 brand=nvidiartx,driver>=560,driver<561 brand=vapps,driver>=560,driver<561 brand=vpc,driver>=560,driver<561 brand=vcs,driver>=560,driver<561 brand=vws,driver>=560,driver<561 brand=cloudgaming,driver>=560,driver<561 brand=unknown,driver>=565,driver<566 brand=grid,driver>=565,driver<566 brand=tesla,driver>=565,driver<566 brand=nvidia,driver>=565,driver<566 brand=quadro,driver>=565,driver<566 brand=quadrortx,driver>=565,driver<566 brand=nvidiartx,driver>=565,driver<566 brand=vapps,driver>=565,driver<566 brand=vpc,driver>=565,driver<566 brand=vcs,driver>=565,driver<566 brand=vws,driver>=565,driver<566 brand=cloudgaming,driver>=565,driver<566",
+      "NVIDIA_VISIBLE_DEVICES": "all",
+      "OMP_NUM_THREADS": "1",
+      "SPARKINFER_ATTN_REQUANT_Q4K": "0",
+      "SPARKINFER_MOE_DOWN_REQUANT_Q4K": "0",
+      "SPARKINFER_SPARSE_KV": "0"
+    }
+  },
+  "time_utc": "2026-10-09T13:04:57Z"
+}

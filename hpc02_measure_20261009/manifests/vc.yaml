@@ -1,0 +1,10 @@
+schema: bittrellis/manifest@2
+track: HPC-02
+name: diag-vc-imatrix-experts-only
+description: diagnostic, kq_imatrix only on routed experts; everything else kq_rtn
+default: Q4_K
+encoders: {Q4_K: kq_rtn}
+rules:
+  - match: "L*.exps.*"
+    format: Q4_K
+    encoder: kq_imatrix

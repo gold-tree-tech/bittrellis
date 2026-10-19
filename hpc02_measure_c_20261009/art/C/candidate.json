@@ -1,0 +1,70 @@
+{
+  "id": "1379de3b0e43bb49",
+  "name": "pr129-kq-imatrix-downs-gdn-qkv",
+  "kind": "internal",
+  "track": "HPC-02",
+  "manifest": {
+    "schema": "bittrellis/manifest@2",
+    "track": "HPC-02",
+    "name": "pr129-kq-imatrix-downs-gdn-qkv",
+    "description": "#129's map (unsloth UD-Q4_K_M with the routed expert downs except layers 34, 38 and 39, the recurrent qkv, lm_head and the embeddings on Q4_K: RP-KL 0.0612, decode 432.1, 23.73 GiB) with the merged kq_imatrix on the Q4_K tensors the pinned statistics cover: the 37 Q4_K routed expert downs (per-expert exps_down.sumsq / count) and the 30 recurrent qkv projections (GPTQ on attn_input.xtx). The formats, and so decode, prefill and memory, are #129's; only the rounding changes. lm_head and the embeddings have no statistics and keep kq_rtn; unsloth's gate/up, Q6_K downs and Q8_0 bytes are kept.\n",
+    "default": "Q8_0",
+    "encoders": {
+      "Q4_K": "unsloth_ud",
+      "Q5_K": "unsloth_ud",
+      "Q6_K": "unsloth_ud",
+      "Q8_0": "unsloth_ud"
+    },
+    "rules": [
+      {
+        "match": "L*.exps.gate",
+        "format": "Q4_K"
+      },
+      {
+        "match": "L*.exps.up",
+        "format": "Q4_K"
+      },
+      {
+        "match": "L*.exps.down",
+        "format": "Q4_K",
+        "encoder": "kq_imatrix"
+      },
+      {
+        "match": "L*.gdn.qkv",
+        "format": "Q4_K",
+        "encoder": "kq_imatrix"
+      }
+    ],
+    "modules": {
+      "L34.exps.down": "Q6_K",
+      "L38.exps.down": "Q6_K",
+      "L39.exps.down": "Q6_K",
+      "lm_head": {
+        "format": "Q4_K",
+        "encoder": "kq_rtn"
+      },
+      "embed": {
+        "format": "Q4_K",
+        "encoder": "kq_rtn"
+      }
+    }
+  },
+  "build": {
+    "candidate_id": "1379de3b0e43bb49",
+    "name": "pr129-kq-imatrix-downs-gdn-qkv",
+    "track": "HPC-02",
+    "summary": {
+      "Q4_K@kq_rtn@v1": 2,
+      "Q4_K@unsloth_ud@v1": 80,
+      "Q4_K@kq_imatrix@v1": 67,
+      "Q8_0@unsloth_ud@v1": 220,
+      "Q6_K@unsloth_ud@v1": 3
+    },
+    "tensors": 733,
+    "encoded": 432,
+    "bytes": 20255963872,
+    "sha256": "2e3a85fbbea365fb1f6dd698295ebda79565388e18e876ea71f15e216dc6b4ff"
+  },
+  "audit_ok": true,
+  "checkpoint_bytes": 20255963872
+}

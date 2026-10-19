@@ -1,0 +1,69 @@
+{
+  "id": "07e6a4afdffd580d",
+  "name": "ud-downs-q4k-gdn-qkv-q4k-lmhead-embed-q4k",
+  "kind": "internal",
+  "track": "HPC-02",
+  "manifest": {
+    "schema": "bittrellis/manifest@2",
+    "track": "HPC-02",
+    "name": "ud-downs-q4k-gdn-qkv-q4k-lmhead-embed-q4k",
+    "description": "#126 (unsloth UD-Q4_K_M with routed expert downs, lm_head and token embeddings on Q4_K: RP-KL 0.0493, decode 403.1, 23.96 GiB) with the recurrent qkv projections of the 30 Gated DeltaNet layers on Q4_K (kq_rtn) instead of unsloth's Q8_0. They are the largest dense tensors a decoded token reads in full (0.50 B weights), and Q4_K is the format SparkInfer reads fastest, so decode rises by about 7% with 0.23 GiB less memory; attention, the recurrent z/out and the shared experts stay Q8_0. Measured on an RTX 5090 against #126 built the same way: RP-KL +0.012, decode 403.4 -> 431.3, peak 23.96 -> 23.73 GiB.\n",
+    "default": "Q8_0",
+    "encoders": {
+      "Q4_K": "unsloth_ud",
+      "Q5_K": "unsloth_ud",
+      "Q6_K": "unsloth_ud",
+      "Q8_0": "unsloth_ud"
+    },
+    "rules": [
+      {
+        "match": "L*.exps.gate",
+        "format": "Q4_K"
+      },
+      {
+        "match": "L*.exps.up",
+        "format": "Q4_K"
+      },
+      {
+        "match": "L*.exps.down",
+        "format": "Q4_K",
+        "encoder": "kq_rtn"
+      },
+      {
+        "match": "L*.gdn.qkv",
+        "format": "Q4_K",
+        "encoder": "kq_rtn"
+      }
+    ],
+    "modules": {
+      "L34.exps.down": "Q6_K",
+      "L38.exps.down": "Q6_K",
+      "L39.exps.down": "Q6_K",
+      "lm_head": {
+        "format": "Q4_K",
+        "encoder": "kq_rtn"
+      },
+      "embed": {
+        "format": "Q4_K",
+        "encoder": "kq_rtn"
+      }
+    }
+  },
+  "build": {
+    "candidate_id": "07e6a4afdffd580d",
+    "name": "ud-downs-q4k-gdn-qkv-q4k-lmhead-embed-q4k",
+    "track": "HPC-02",
+    "summary": {
+      "Q4_K@kq_rtn@v1": 69,
+      "Q4_K@unsloth_ud@v1": 80,
+      "Q8_0@unsloth_ud@v1": 220,
+      "Q6_K@unsloth_ud@v1": 3
+    },
+    "tensors": 733,
+    "encoded": 432,
+    "bytes": 20255963872,
+    "sha256": "212efd019608144fabef8a2e58c270d2842275d843504338ffd8a7de9ce606f8"
+  },
+  "audit_ok": true,
+  "checkpoint_bytes": 20255963872
+}

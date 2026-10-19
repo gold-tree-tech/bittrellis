@@ -1,0 +1,10 @@
+{"tensor": "L12.linear_attn.in_proj_z.weight.npy", "fmt": "Q4_K", "gptq_s": 23.3, "rtn": 1.0, "imat": 0.45004224505054896, "ours_diag": 0.452255220636788, "ours_gptq": 0.3231620164437343}
+{"tensor": "L12.mlp.experts.down_proj.npy", "fmt": "Q4_K", "rtn": 1.0, "imat": 0.7452922636141996, "ours": 0.7472971672076094, "experts": 24, "counts": [12604.0, 34895.0, 10651.0, 25658.0, 9816.0, 12139.0]}
+{"tensor": "L12.linear_attn.in_proj_qkv.weight.npy", "fmt": "Q4_K", "gptq_s": 39.0, "rtn": 1.0, "imat": 0.4250989460857838, "ours_diag": 0.4263602931635555, "ours_gptq": 0.3028719256528583}
+{"tensor": "L19.self_attn.q_proj.weight.npy", "fmt": "Q4_K", "gptq_s": 37.6, "rtn": 1.0, "imat": 0.38676407880803587, "ours_diag": 0.38842513580724597, "ours_gptq": 0.26629158509728873}
+{"tensor": "L19.self_attn.o_proj.weight.npy", "fmt": "Q4_K", "rtn": 1.0, "imat": 0.8377378236551528, "ours_uniform": 0.7988464082027851}
+{"tensor": "L30.linear_attn.in_proj_z.weight.npy", "fmt": "Q4_K", "gptq_s": 22.5, "rtn": 1.0, "imat": 0.4333529192342985, "ours_diag": 0.43511269200942515, "ours_gptq": 0.29472509125619617}
+{"tensor": "L30.mlp.experts.down_proj.npy", "fmt": "Q4_K", "rtn": 1.0, "imat": 0.7348008341731522, "ours": 0.736697868979496, "experts": 24, "counts": [14869.0, 20844.0, 4265.0, 5811.0, 3924.0, 2750.0]}
+{"tensor": "L30.linear_attn.in_proj_qkv.weight.npy", "fmt": "Q4_K", "gptq_s": 39.6, "rtn": 1.0, "imat": 0.42873712743371883, "ours_diag": 0.43007351093523977, "ours_gptq": 0.28687725125429564}
+{"tensor": "L35.self_attn.q_proj.weight.npy", "fmt": "Q4_K", "gptq_s": 39.9, "rtn": 1.0, "imat": 0.4356482491583277, "ours_diag": 0.43724233009291064, "ours_gptq": 0.2875944336602191}
+DONE

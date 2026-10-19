@@ -1,0 +1,35 @@
+schema: bittrellis/manifest@2
+track: HPC-02
+name: pr142-kq-imatrix-downs-gdn
+description: >
+  #142's map (unsloth's routed gate/up, every routed expert down on Q4_K, the recurrent qkv of all 30 Gated
+  DeltaNet layers and the recurrent z/out of layers 20-39 on Q4_K, the rest Q8_0: RP-KL 0.0713, decode 447.0,
+  23.42 GiB) with the merged kq_imatrix on the Q4_K tensors the pinned statistics cover: the 40 routed expert
+  downs (per-expert exps_down.sumsq / count), the recurrent qkv and the deep recurrent z (GPTQ on
+  attn_input.xtx). The formats, and so decode, prefill and memory, are #142's; only the rounding changes.
+  The recurrent out projections, lm_head and the embeddings have no statistics and keep kq_rtn (uniform weights
+  there moved the MMLU-Pro answer format in #146's first form); unsloth's gate/up and Q8_0 bytes are kept.
+default: Q8_0
+encoders: {Q4_K: unsloth_ud, Q5_K: unsloth_ud, Q6_K: unsloth_ud, Q8_0: unsloth_ud}
+rules:
+  - match: "L*.exps.gate"
+    format: Q4_K
+  - match: "L*.exps.up"
+    format: Q4_K
+  - match: "L*.exps.down"
+    format: Q4_K
+    encoder: kq_imatrix
+  - match: "L*.gdn.qkv"
+    format: Q4_K
+    encoder: kq_imatrix
+  - match: "L*.gdn.z"
+    layers: "20-39"
+    format: Q4_K
+    encoder: kq_imatrix
+  - match: "L*.gdn.out"
+    layers: "20-39"
+    format: Q4_K
+    encoder: kq_rtn
+modules:
+  lm_head: {format: Q4_K, encoder: kq_rtn}
+  embed: {format: Q4_K, encoder: kq_rtn}

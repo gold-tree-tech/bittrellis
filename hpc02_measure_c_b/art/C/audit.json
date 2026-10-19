@@ -1,0 +1,36 @@
+{
+  "ok": true,
+  "errors": [],
+  "n_errors": 0,
+  "candidate_id": "1379de3b0e43bb49",
+  "lineage": {
+    "kq_imatrix@v1": {
+      "lineage": "regenerable",
+      "units": 67,
+      "sampled": [
+        "L0.exps.down",
+        "L22.gdn.qkv",
+        "L37.exps.down",
+        "L38.gdn.qkv",
+        "L8.gdn.qkv",
+        "L9.exps.down"
+      ]
+    },
+    "kq_rtn@v1": {
+      "lineage": "regenerable",
+      "units": 2,
+      "sampled": [
+        "embed",
+        "lm_head"
+      ]
+    },
+    "unsloth_ud@v1": {
+      "lineage": "attested",
+      "units": 303,
+      "checked": 303
+    }
+  },
+  "checkpoint_files": {
+    "C.gguf": "2e3a85fbbea365fb1f6dd698295ebda79565388e18e876ea71f15e216dc6b4ff"
+  }
+}
